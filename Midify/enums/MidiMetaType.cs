@@ -1,0 +1,21 @@
+public enum MidiMetaType
+{
+    SequenceNumber,
+    Text,
+    Copyright,
+    SequenceOrTrackName,
+    InstrumentName,
+    Lyric,
+    Marker,
+    CuePoint,
+    ProgramName,
+    DeviceName,
+    ChannelPrefix,
+    Port,
+    EndOfTrack,
+    Tempo,
+    SMTPEOffset,
+    TimeSignature,
+    KeySignature,
+    SequenceSpecific
+}
