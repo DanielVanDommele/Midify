@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Midify")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a04289a29abae69e89f8fca9460e6f98daca0aa5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+482da25e2c23a9a5b87379a6889a9f69d48b9c03")]
 [assembly: System.Reflection.AssemblyProductAttribute("Midify")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Midify")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

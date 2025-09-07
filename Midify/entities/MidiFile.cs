@@ -1,6 +1,6 @@
 public class MidiFile
 {
-    public MidiFile(string fileName, int fileSize)
+    public MidiFile(string fileName, long fileSize)
     {
         FileName = fileName;
         FileSize = fileSize;
@@ -8,7 +8,7 @@ public class MidiFile
 
     public string FileName { get; set; } = "";
 
-    public int FileSize { get; set; } = 0;
+    public long FileSize { get; set; } = 0;
 
     public MidiHeader Header { get; set; } = new();
 
