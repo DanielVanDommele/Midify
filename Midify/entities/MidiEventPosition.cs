@@ -1,4 +1,5 @@
 public class MidiEventPosition
 {
-    public int Something { get; set; } = 0;
+    public int Absolute { get; set; } = 0;
+    public int Delta { get; set; } = 0;
 }

@@ -75,15 +75,17 @@ public class MidiReader
     private MidiTickDiv ToTickDiv(byte[] bytes)
     {
         MidiTickDiv tickDiv = new();
-        tickDiv.Timing = (bytes[0] & (1 << 7)) == 1 ? MidiTiming.TimeCode : MidiTiming.Metric;
-        if (tickDiv.Timing == MidiTiming.TimeCode)
+        MidiTiming timing = (bytes[0] & (1 << 7)) == 1 ? MidiTiming.TimeCode : MidiTiming.Metric;
+
+        if (timing == MidiTiming.TimeCode)
         {
-            tickDiv.PulsePerQuarterNote = BitConverter.ToInt32(bytes);
+            tickDiv.SetAsMetric(ppqn: BitConverter.ToInt32(bytes));
         }
         else
         {
-            tickDiv.FramesPerSecond = BitConverter.ToInt32([bytes[0]]);
-            tickDiv.SubFrames = (int)BitConverter.ToUInt32([bytes[1]]);
+            tickDiv.SetAsTimeCode(fps: -(sbyte)bytes[0], sf: bytes[1]);
+            // tickDiv.FramesPerSecond = BitConverter.ToInt32([bytes[0]]);
+            // tickDiv.SubFrames = (int)BitConverter.ToUInt32([bytes[1]]);
         }
         return tickDiv;
     }

@@ -1,4 +1,10 @@
-public class MidiWriter()
+public class MidiWriter
 {
-    
+    public MidiWriter()
+    {
+    }
+
+    public void Write(MidiFile mf)
+    {
+    }
 }

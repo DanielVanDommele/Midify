@@ -1,6 +1,10 @@
 public class MidiTrack
 {
+    public int TrackNumber { get; set; } = 0;
+
     public string TrackName { get; set; } = "";
+
+    public int Channel { get; set; } = 0;
 
     public int Pan { get; set; } = 64;
 

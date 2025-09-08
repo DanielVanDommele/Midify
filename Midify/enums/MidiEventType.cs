@@ -3,7 +3,6 @@ public enum MidiEventType
     MidiEvent,
     SysExEvent,
     MetaEvent,
-    NoteEvent,
     Unspecified = -1
 }
 

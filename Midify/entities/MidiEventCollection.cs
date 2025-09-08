@@ -10,4 +10,8 @@ public class MidiEventCollection
     {
         events.Remove(midiEvent);
     }
-}
+    
+    public int Count()
+    {
+        return events.Count;
+    }
