@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Midify": {
+      "commandName": "Project",
+      "commandLineArgs": "details in:\"C:\\Projects\\own-github\\for_midify\\Together again.mid\" out:C:\\Projects\\own-github\\for_midify\\together-again_det.txt"
+    }
+  }
+}

@@ -1,17 +1,24 @@
 public class MidiEventCollection
 {
-    private List<IMidiEvent> events = new();
+    private List<IEventBase> events = new();
 
-    public void AddEvent(IMidiEvent midiEvent) {
+    public void AddEvent(IEventBase midiEvent)
+    {
         events.Add(midiEvent);
     }
 
-    public void RemoveEvent(IMidiEvent midiEvent)
+    public void RemoveEvent(IEventBase midiEvent)
     {
         events.Remove(midiEvent);
     }
-    
-    public int Count()
+
+    public int Count
     {
-        return events.Count;
+        get { return events.Count; }
     }
+
+    public List<IEventBase> List
+    { 
+        get { return events; } 
+    }
+}

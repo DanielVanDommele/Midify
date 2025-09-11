@@ -19,9 +19,14 @@ public static class CommandManager
         Console.WriteLine("");
     }
 
-    public static void Summary(string inputFile, string outputFile = "")
+    public static void Summary(FileInfo inputFile, string outputFile = "")
     {
-        MidiFile mf = new MidiReader(new FileInfo(inputFile)).Read();
+        MidiFile? mf = new MidiReader(inputFile).Read();
+        if (mf == null)
+        {
+            Console.WriteLine("Reading of Midifile failed - aborting");
+            return;
+        }
         List<string> summary = MidiDescriber.GetSummary(mf);
 
         if (string.IsNullOrEmpty(outputFile))
@@ -38,9 +43,14 @@ public static class CommandManager
         }
     }
 
-    public static void Summary(string inputFile, string outputFile = "")
+    public static void Details(FileInfo inputFile, string outputFile = "")
     {
-        MidiFile mf = new MidiReader(new FileInfo(inputFile)).Read();
+        MidiFile? mf = new MidiReader(inputFile).Read();
+        if (mf == null)
+        {
+            Console.WriteLine("Reading of Midifile failed - aborting");
+            return;
+        }
         List<string> details = MidiDescriber.GetDetails(mf);
 
         if (string.IsNullOrEmpty(outputFile))

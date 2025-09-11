@@ -127,5 +127,6 @@ public enum MidiInstrument
     TelephoneRing,
     Helicopter,
     Applause,
-    Gunshot
+    Gunshot,
+    NotSet = -1
 }
