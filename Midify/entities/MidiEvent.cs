@@ -503,7 +503,7 @@ public class KeySignatureEvent : IMetaEvent
     {
         Dictionary<string, string> output = [];
         output.Add("EventType", "Meta Key Signature");
-        output.Add("Key", Key.ToString());
+        output.Add("Key", nameof(Key));
         output.Add("Is Minor", Minor ? "Yes" : "No");
 
         return output;

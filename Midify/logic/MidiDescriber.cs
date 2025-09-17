@@ -33,19 +33,41 @@ public static class MidiDescriber
             details.Add("-------------------------------");
             foreach (var mEvent in track.Events.List)
             {
-                Dictionary<string, string> eventParameters = mEvent.Parameters();
+                string outStr = "";
 
-                details.Add($"@{mEvent.Position.Absolute} (Delta {mEvent.Position.Delta}):");
+                Dictionary<string, string> eventParameters = mEvent.Parameters();
                 foreach (var kv in eventParameters.ToList())
                 {
-                    details.Add($" - {kv.Key}: {kv.Value}");
+                    switch (kv.Key)
+                    {
+                        case "Numerator":
+                            outStr = "Time Signature: " + kv.Value + "\t\t";
+                            break;
+                        case "Denominator":
+                            outStr = $"/{MidiDescriber.GetDenominator(kv.Value)}\t\t";
+                            break;
+                        case "Key":
+                            outStr = "Key Signature: " + kv.Value + "\t\t";
+                            break;
+                        case "Channel":
+                            outStr += $"#{kv.Value}\t\t";
+                            break;
+                        default:
+                            outStr += $"{kv.Key}: {kv.Value}\t\t";
+                            break;
+                    }
                 }
-                details.Add("");
+                outStr += $"@{mEvent.Position.Absolute} (D: {mEvent.Position.Delta}):";
 
+                details.Add(outStr);
             }
             details.Add("-------------------------------");
         }
         return details;
     }
 
+    private static string GetDenominator (string inValue)
+    {
+        return (2 ^ int.Parse(inValue)).ToString();
+    }
 }
